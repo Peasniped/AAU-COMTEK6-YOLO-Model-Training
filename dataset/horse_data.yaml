@@ -1,0 +1,9 @@
+names:
+- ear
+- eye
+- nostril
+- head
+- mouth
+nc: 5
+train: D:\Github\AAU-COMTEK6-YOLO-Model-Training\dataset\images\train
+val: D:\Github\AAU-COMTEK6-YOLO-Model-Training\dataset\images\train

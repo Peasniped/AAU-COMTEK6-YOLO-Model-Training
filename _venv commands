@@ -1,0 +1,22 @@
+# Installer venv
+> pip install virtualenv
+
+# Enable remoteSigned PowerShell-scripts:
+- In an admin PowerShell-terminal
+> set-ExecutionPolicy RemoteSigned
+- Press 'Yes'
+
+# Create virtual environment
+> python -m venv .venv
+
+# Activate virtual environment
+> .venv\Scripts\activate.ps1
+
+# Update pip
+python.exe -m pip install --upgrade pip
+
+# Install all requirements
+> pip install -r requirements.txt
+
+# Deactivate venv when done
+> deactivate

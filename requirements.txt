@@ -1,0 +1,10 @@
+pip>=25.1
+python-dotenv==1.1.0
+opencv-python==4.11.0.86
+ultralytics==8.3.119
+
+# Enable CUDA
+--extra-index-url https://download.pytorch.org/whl/cu118
+torch==2.7.0+cu118
+torchaudio==2.7.0+cu118
+torchvision==0.22.0+cu118
