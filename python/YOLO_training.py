@@ -1,8 +1,10 @@
-import os
-import yaml
-import torch
-import torchvision
-from ultralytics import YOLO
+import  os
+import  torch
+import  torchvision
+import  yaml
+from    time        import perf_counter
+from    ultralytics import YOLO
+
 
 def _update_yaml_paths(yaml_path: str, project_root: str | None = None) -> None:
     project_root = os.getcwd() if project_root is None else project_root
@@ -74,13 +76,13 @@ def train(epochs:int, imgz:int, base_model = "yolo11", model_skew: str = "nano")
     device = _get_device()
     imgz, batch = _get_batch(device, imgz)
     workers = _get_worker_count()
-    patience_scalar = 0.2
+    patience_scalar = 0.20
     patience = int(epochs * patience_scalar)
     print(f"Using patience of {patience} epochs which is {patience_scalar*100}% of total epoch count {epochs}")
     print("Starting training module...\n\n")
 
     model.train(
-        name        = "horse_features",
+        name        = "horse_features2",
         project     = "runs",
         data        = "dataset/horse_data.yaml",
         exist_ok    = True,              # Allows overwriting of files
@@ -96,4 +98,9 @@ def train(epochs:int, imgz:int, base_model = "yolo11", model_skew: str = "nano")
     print("Removed temporary model from root 'yolo11n.pt' used by YOLO for running Automatic Mixed Precision (AMP) checks!")
 
 if __name__ == "__main__":
-    train(200, 960, "yolo11", "nano")
+    start_time = perf_counter()
+
+    train(200, 1280, "yolo11", "nano")
+    
+    duration = perf_counter() - start_time
+    print(f"Model trained in {duration} s")

@@ -9,7 +9,7 @@ model = YOLO('runs\\horse_features\\weights\\best.pt')
 
 def detect_horse_features(model: YOLO, image_path: str) -> tuple:
     # Run model on image
-    results = model(image_path, imgsz=640, conf=0.56)
+    results = model(image_path, imgsz=640, conf=0.50)
     objects = []
 
     # Load image to draw bbox
